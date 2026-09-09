@@ -144,6 +144,25 @@ namespace MazeMaker
 
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChkPause_CheckedChanged(object sender, EventArgs e)
+        {
+            //timer.Enabled = !ChkPause.Checked;
+            if (ChkPause.Checked)
+            {
+                timer.Stop();
+            }
+            else
+            {
+                timer.Start();
+            }
+
+        }
+
         private void ResetMaze()
         {
             // clear previous state
@@ -192,7 +211,8 @@ namespace MazeMaker
 
 
             tbSpeedset.Minimum = 10;
-            tbSpeedset.Maximum = 100000;
+            tbSpeedset.Maximum = 1000;
+            tbSpeedset.Value = 400;
             timer.Interval = tbSpeedset.Value;
         }
     }

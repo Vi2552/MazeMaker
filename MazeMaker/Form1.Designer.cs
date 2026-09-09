@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSpeedset = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ChkPause = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCellWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedset)).BeginInit();
@@ -52,7 +54,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1029, 104);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1031, 104);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(300, 602);
@@ -112,18 +114,43 @@
             // tbSpeedset
             // 
             this.tbSpeedset.Location = new System.Drawing.Point(958, 10);
-            this.tbSpeedset.Maximum = 80;
+            this.tbSpeedset.Maximum = 1000;
             this.tbSpeedset.Name = "tbSpeedset";
             this.tbSpeedset.Size = new System.Drawing.Size(388, 69);
             this.tbSpeedset.TabIndex = 7;
-            this.tbSpeedset.Value = 80;
+            this.tbSpeedset.Value = 500;
             this.tbSpeedset.Scroll += new System.EventHandler(this.tbSpeedset_Scroll);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1066, 711);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 29);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Stack";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // ChkPause
+            // 
+            this.ChkPause.AutoSize = true;
+            this.ChkPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkPause.Location = new System.Drawing.Point(1414, 33);
+            this.ChkPause.Name = "ChkPause";
+            this.ChkPause.Size = new System.Drawing.Size(119, 33);
+            this.ChkPause.TabIndex = 9;
+            this.ChkPause.Text = "Pause?";
+            this.ChkPause.UseVisualStyleBackColor = true;
+            this.ChkPause.CheckedChanged += new System.EventHandler(this.ChkPause_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1503, 731);
+            this.ClientSize = new System.Drawing.Size(1641, 731);
+            this.Controls.Add(this.ChkPause);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.tbSpeedset);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -154,6 +181,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar tbSpeedset;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox ChkPause;
     }
 }
 
