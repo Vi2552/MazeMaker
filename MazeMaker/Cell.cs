@@ -51,23 +51,23 @@ namespace MazeMaker
             }
         }
 
-        public int Index(int row, int col,int numCols)
+        public int Index(int row, int col,int numCols, int numRows)
         {
 
-            if (row < 0 || col < 0 || row >= numCols || col >= numCols)
+            if (row < 0 || col < 0 || row >= numRows || col >= numCols)
             {
                 return -1;
             }
             return row * numCols + col ; 
         }
 
-        internal Cell CheckNeighbours(List<Cell> grid, int numCols)
+        internal Cell CheckNeighbours(List<Cell> grid, int numCols, int numRows)
         {
             List<Cell> neighbours = new List<Cell>();
-            Cell top = Index(Row -1, Col, numCols) != -1 ? grid[Index(Row -1, Col, numCols)] : null;
-            Cell right = Index(Row, Col + 1, numCols) != -1 ? grid[Index(Row, Col + 1 , numCols)] : null;
-            Cell bottom = Index(Row + 1, Col, numCols) != -1 ? grid[Index(Row + 1, Col, numCols)] : null;
-            Cell left = Index(Row, Col - 1, numCols) != -1 ? grid[Index(Row, Col - 1, numCols)] : null;
+            Cell top = Index(Row -1, Col, numCols, numRows) != -1 ? grid[Index(Row -1, Col, numCols, numRows)] : null;
+            Cell right = Index(Row, Col + 1, numCols, numRows) != -1 ? grid[Index(Row, Col + 1 , numCols, numRows)] : null;
+            Cell bottom = Index(Row + 1, Col, numCols, numRows) != -1 ? grid[Index(Row + 1, Col, numCols, numRows)] : null;
+            Cell left = Index(Row, Col - 1, numCols, numRows) != -1 ? grid[Index(Row, Col - 1, numCols, numRows)] : null;
             if (top != null && !top.Visited)
             {
                 neighbours.Add(top);
@@ -117,6 +117,11 @@ namespace MazeMaker
                 graphics.DrawLine(Pens.White, x, y + Size, x, y); // left
             }
 
+        }
+
+        internal Cell CheckNeighbours(List<Cell> grid, int numCols)
+        {
+            throw new NotImplementedException();
         }
     }
 }

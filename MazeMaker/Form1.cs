@@ -47,7 +47,7 @@ namespace MazeMaker
         private void PbCanvas_Paint(object sender, PaintEventArgs e)
         {
             current.Visited = true; 
-            next = current.CheckNeighbours(grid, numCols); // step 1: check for unvisited neighbours
+            next = current.CheckNeighbours(grid, numCols, numRows); // step 1: check for unvisited neighbours
             if (next != null) // if there is an unvisited neighbour, go to it
             {
                 next.Visited = true;
@@ -58,7 +58,9 @@ namespace MazeMaker
                 thelabel.BackColor = Color.LightBlue; thelabel.BorderStyle = BorderStyle.FixedSingle;
                 thelabel.Text = $"Current: ({current.Row}, {current.Col}))";
                 labelList.Add(thelabel);
-                //RemoveWalls(current, next);
+
+                RemoveWalls(current, next);
+
                 current = next;
             }
             else if (theStack.Count > 0)
@@ -129,6 +131,19 @@ namespace MazeMaker
                 next.walls[0] = false;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSpeedset_Scroll(object sender, EventArgs e)
+        {
+
+            timer.Interval = tbSpeedset.Value;
+
+        }
+
         private void ResetMaze()
         {
             // clear previous state
@@ -174,6 +189,11 @@ namespace MazeMaker
             }
             // pbCanvas.Invalidate(); // call the paint event
             current = grid[0]; // start with the first cell
+
+
+            tbSpeedset.Minimum = 10;
+            tbSpeedset.Maximum = 100000;
+            timer.Interval = tbSpeedset.Value;
         }
     }
 }
